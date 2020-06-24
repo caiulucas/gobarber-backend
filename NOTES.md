@@ -17,3 +17,7 @@ Tudo que transforma dado, deixamos na rota
 Tudo o que é lógica, colocamos num service
 
 O service tem que ter uma única responsabilidade (Um método)
+
+## MIGRATIONS
+-Você só pode alterar uma migration se ela não foi enviada ainda pro sistema de
+controle de versão. Se não, criar obrigatóriamente outra migration
