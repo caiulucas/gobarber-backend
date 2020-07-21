@@ -7,19 +7,19 @@ import UsersController from '../controllers/UsersController';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import UserAvatarController from '../controllers/UserAvatarController';
 
-const usersRoutes = Router();
+const usersRouter = Router();
 const upload = multer(uploadConfig);
 
 const usersController = new UsersController();
 const userAvatarController = new UserAvatarController();
 
-usersRoutes.post('/', usersController.create);
+usersRouter.post('/', usersController.create);
 
-usersRoutes.patch(
+usersRouter.patch(
   '/avatar',
   ensureAuthenticated,
   upload.single('avatar'),
   userAvatarController.update,
 );
 
-export default usersRoutes;
+export default usersRouter;
