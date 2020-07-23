@@ -20,7 +20,7 @@ class ShowProfileService {
 
     if (!user) throw new AppError('User not found.', 404);
 
-    return this.usersRepository.save(user);
+    return user;
   }
 }
 
