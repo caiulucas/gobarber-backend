@@ -22,7 +22,7 @@ class SendForgotPasswordEmailService {
     private userTokensRepository: IUserTokensRepository,
 
     @inject('HashProvider')
-    private hashProider: IHashProvider,
+    private hashProvider: IHashProvider,
   ) {}
 
   public async execute({ token, password }: IRequest): Promise<void> {
@@ -41,7 +41,7 @@ class SendForgotPasswordEmailService {
       throw new AppError('Token expired', 401);
     }
 
-    user.password = await this.hashProider.generateHash(password);
+    user.password = await this.hashProvider.generateHash(password);
 
     await this.usersRepository.save(user);
   }
